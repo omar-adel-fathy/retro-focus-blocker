@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Retro Focus Blocker",
+  "version": "1.2.0",
+  "description": "Retro focus timer with site blocking, rest mode, controlled breaks, sound alerts, and improved camera guard.",
+  "permissions": [
+    "storage",
+    "alarms",
+    "tabs",
+    "notifications",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Retro Focus Blocker",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "blocked.html",
+        "blocked.css",
+        "blocked.js",
+        "rest.html",
+        "rest.css",
+        "rest.js",
+        "presence.html",
+        "presence.css",
+        "presence.js",
+        "sharedAudio.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

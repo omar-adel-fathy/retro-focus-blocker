@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Presence Guard</title><link rel="stylesheet" href="presence.css"></head>
+<body>
+  <main class="shell">
+    <section class="titlebar"><span>CAM_GUARD.EXE</span><strong>v1.2 HYBRID</strong></section>
+
+    <section class="screen" id="screen">
+      <div class="scanlines"></div>
+      <video id="video" autoplay muted playsinline></video>
+      <canvas id="canvas" width="160" height="120"></canvas>
+      <div class="hud">
+        <p id="guardStatus">Click Start Guard.</p>
+        <h1 id="presenceText">OFFLINE</h1>
+        <p id="scores">face: -- | motion: -- | match: --</p>
+      </div>
+      <div id="sirenOverlay">
+        <h2>SIREN ACTIVE</h2>
+        <p>Get back to the chair.</p>
+        <button id="imBack">I’m back / silence</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <button id="startCam">Start guard</button>
+      <button id="calibrate">I’m here / recalibrate</button>
+      <button id="testSiren">Test siren</button>
+      <button id="stopSiren">Stop siren</button>
+      <label><input id="alwaysOn" type="checkbox"> Siren even without focus timer</label>
+      <label>Missing seconds before siren <input id="missingSeconds" type="number" min="5" max="90" value="18"></label>
+      <p class="hint">New logic: face OR calibrated body/scene match OR movement keeps you present. It waits before siren, so head tilt should not fail instantly.</p>
+    </section>
+
+    <section class="panel mini">
+      <b>Real limit:</b> Chrome cannot stop you from closing the browser, muting the device, or shutting down the laptop. This is strong browser friction, not OS lockdown.
+    </section>
+  </main>
+
+  <script src="sharedAudio.js"></script>
+  <script src="presence.js"></script>
+</body>
+</html>
